@@ -28,7 +28,7 @@
 <body>
     <main class="container d-flex flex-column align-items-center p-5">
 
-        <h1 class="m-2 text-center">Joãozinho vai ao cinema</h1>
+        <h1 class="m-2 text-center">Montador de tabuadas</h1>
 
         <!-- ENTRADA  -->
         <div class="card m-5">
@@ -36,19 +36,10 @@
                 <!-- insira os campos de formulário aqui -->
                 <form id="entrada">
                     <div class="mb-3">
-                        <label for="" class="form-label">Nome do filme:</label>
-                        <input type="text" class="form-control" name="filme" id="filme"
-                            placeholder="Digite o nome do filme">
-
-
-                        <div class="mb-3">
-                            <label for="" class="form-label">Digite a faixa etaria:</label>
-                            <input type="number" class="form-control" name="classificacao" id="classificacao"
-                                placeholder="Idade">
-
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Processar...</button>
+                        <label for="numero" class="form-label">Digite o número da tabuada</label>
+                        <input type="number" class="form-control" name="numero" id="numero">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Criar tabuada</button>
                 </form>
 
             </div>
@@ -58,11 +49,28 @@
 
         <!-- SAÍDA  -->
         <div class="card m-5">
-            <div class="card-body">
+            <div id="resposta" class="card-body">
                 <!-- insira os elementos de saída aqui -->
-                <p id="resposta" class="text-center">Joãozinho pode assistir esse filme? <br>
-                    <span id="resposta-txt" class="fw-bold fs-1"></span>
-                </p>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tabuada do numero </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td scope="row">7</td>
+                                <td>x</td>
+                                <td>1</td>
+                                <td>=</td>
+                                <td>7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
         </div>
 
@@ -82,17 +90,14 @@
     <script>
         var entrada = document.getElementById('entrada')
 
-    
-        entrada.addEventListener('submit', (evt) => { //variavel evt é comumente usada em funcoes para varias necessidades
-            let nomeFilme = document.getElementById('filme').value
-            let classificacao = document.getElementById('classificacao').value
+        entrada.addEventListener('submit',(evt) => {
 
-            if (classificacao >= 18) {
-                document.getElementById('resposta-txt').innerText = 'Joãozinho você não pode ver esse filme'
-            } else {
-                document.getElementById('resposta-txt').innerText = 'Pode entrar Joãozinho'
+            let numero = document.getElementById('numero').value
+            for (let contador = 1; contador <= 10; contador++) {
+                console.log(numero*contador)
+                
             }
-            //evita a atualização da página no evento submit
+
             evt.preventDefault()
         })
     </script>
